@@ -1,0 +1,42 @@
+Commands:
+
+make TARGET=<platform>
+make TARGET=native
+make clean
+
+Check sensor connected:
+ls -l /dev/ttyACM*
+
+Erase using uniflash:
+sudo /home/comp6733/uniflash_3.4/eclipse/uniflash
+
+
+make TARGET=srf06-cc26xx BOARD=sensortag/cc2650
+sudo make prog
+make connect
+
+chmod +X kermusb.sh
+sudo apt-get install ckermit
+./kermusb.sh
+
+
+sudo ~/contiki-git/tools/tunslip6 -B 115200 -s /dev/ttyACM0 aaaa::1/64
+
+
+nc6 aaaa::212:4b00:1205:2269 8080
+ping6 aaaa::212:4b00:1205:2269
+
+The one with the reset button
+Server IPv6 addresses:
+ aaaa::212:4b00:1205:2269
+ fe80::212:4b00:1205:2269
+
+The one without the reset button
+Server IPv6 addresses:
+ aaaa::212:4b00:1205:23b7
+ fe80::212:4b00:1205:23b7
+
+Coap://[aaaa::212:4b00:1205:2269]
+
+
+git clone git@github.com:Samer-Haddad/COMP6733.git
